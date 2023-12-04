@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/majority-element-ii/description/
+
 function majorityElement(nums: number[]): number[] {
     let first: number = -1
     let firstCount: number = 0

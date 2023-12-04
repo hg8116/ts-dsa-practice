@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/maximum-subarray/description/
+
 function maxSubArray(nums: number[]): number {
     let ans = nums[0]
     let sum = 0
