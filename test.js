@@ -1,26 +1,32 @@
-function solution(a, b) {
-  let count = 0
-  for (let i = a + 1; i <= b; i++) {
-    if (helper(i)) count++
-  }
+const readline = require("readline");
 
-  return count
+var t = parseInt(readline());
+var ar = readline()
+  .split(" ")
+  .map((x) => parseInt(x));
+
+var ok = 0;
+ar.sort((a, b) => a - b);
+
+var m = [],
+  n = [];
+for (var i = 0; i < ar.length; i++) {
+  if (n.length == 0 || ar[i] > n[n.length - 1]) {
+    n.push(ar[i]);
+  } else if (m.length == 0 || ar[i] > m[m.length - 1]) {
+    m.push(ar[i]);
+  } else ok = 1;
 }
-
-function helper(num) {
-  const numString = num.toString()
-
-  let sumEven = 0
-  let sumOdd = 0
-
-  for (let i = 0; i < numString.length; i++) {
-    const digit = parseInt(numString[i])
-
-    if (i % 2 === 0) sumEven += digit
-    else sumOdd += digit
-  }
-
-  return sumEven % 2 === sumOdd % 2
-}
-
-console.log(solution(8, 13))
+print(
+  ok
+    ? "NO"
+    : "YES" +
+    "\n" +
+    m.length +
+    "\n" +
+    m.join(" ") +
+    "\n" +
+    n.length +
+    "\n" +
+    n.reverse().join(" "),
+);
